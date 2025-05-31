@@ -1,0 +1,30 @@
+---
+const SocialNavItems = [
+  { href: 'https://www.linkedin.com/in/ken-chase/', label: 'LinkedIn' },
+  { href: 'https://www.instagram.com/therealkenchase/', label: 'Instagram' },
+  { href: 'https://bsky.app/profile/therealkenchase.bsky.social', label: 'Bluesky' },
+];
+import Link from '../components/Link.astro';
+---
+
+<footer class="footer">
+  <div class="region region--inverted region--lg region-footer">
+    <div class="wrapper repel">
+      <p>&copy; {new Date().getFullYear()} Ken Chase. All rights reserved.</p>
+      <nav aria-label="social" class="nav-social">
+        <ul role="list" class="cluster">
+          {
+            // Map through the social navigation items and create links (implicit return)
+            SocialNavItems.map((item) => (
+              <li>
+                <Link href={item.href} class="nav-social__link" target="_blank" rel="noopener noreferrer">
+                  {item.label}
+                </Link>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+    </div>
+  </div>
+</footer>
